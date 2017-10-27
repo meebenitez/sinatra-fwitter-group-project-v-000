@@ -43,8 +43,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-    if !logged_in
-     if params[:username] == "" || params[:password] == "" || params[:email]
+    #if !logged_in
+     if params[:username] == "" || params[:password] == "" || params[:email] == ""
        redirect '/signup'
       else
         @user = User.new(username: params[:username], password: params[:password], email: params[:email])
@@ -52,9 +52,9 @@ class ApplicationController < Sinatra::Base
         session[:user_id] = @user.id
         redirect '/tweets'
       end
-    else
-      redirect '/'
-    end
+    #else
+    #  redirect '/'
+    #end
   end
 
   get '/login' do
