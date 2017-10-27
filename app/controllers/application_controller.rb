@@ -12,7 +12,9 @@ class ApplicationController < Sinatra::Base
   get '/' do
     if logged_in?
       redirect '/tweets'
-    erb :index
+    else
+      erb :index
+    end
   end
   #
    get '/tweets/new' do
