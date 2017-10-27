@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    if logged_in?
+      redirect '/tweets'
+    else
+      erb :index
+    end
   end
   #
    get '/tweets/new' do
@@ -38,7 +42,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-    erb :'users/create_user'
+    if logged_in?
+      redirect '/tweets'
+    else
+      erb :'users/create_user'
+    end
 
   end
 
