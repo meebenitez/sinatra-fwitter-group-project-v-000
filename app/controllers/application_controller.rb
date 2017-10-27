@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
 
   post '/tweets' do
     erb :'tweets/tweets'
-
   end
 
   get '/tweets/:id' do
@@ -55,7 +54,7 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get 'logout'
+  get 'logout' do
     session.clear
   end
 
