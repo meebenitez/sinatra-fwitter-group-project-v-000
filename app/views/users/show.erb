@@ -1,0 +1,5 @@
+<p><%= @user.username %>'s Tweets
+
+<% @tweets.each do |tweet| %>
+  <p><%= tweet.content %>
+<% end %>
